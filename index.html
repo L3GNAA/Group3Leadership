@@ -39,9 +39,11 @@
     main {
       margin-top: 120px;
       display: flex;
+      flex-direction: column;
       justify-content: flex-start;
       align-items: stretch;
       padding: 20px;
+      gap: 40px;
     }
 
     /* Banner-style project cards */
@@ -147,6 +149,97 @@
       color: #333;
       line-height: 1.5;
       margin: 0;
+    }
+
+    /* Meeting Minutes Section */
+    .meeting-section {
+      width: 100%;
+      min-width: 1800px;
+      background: #fff;
+      border-radius: 18px;
+      border: 2px solid #e0e0e0;
+      padding: 30px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+    }
+
+    .meeting-section h2 {
+      color: #1976d2;
+      font-size: 26px;
+      margin-bottom: 25px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .meeting-card {
+      background: #f8f9fa;
+      border-left: 6px solid #2196f3;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 20px;
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+
+    .meeting-card:hover {
+      transform: translateX(5px);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    .meeting-card:last-child {
+      margin-bottom: 0;
+    }
+
+    .meeting-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 15px;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .meeting-title {
+      font-size: 18px;
+      font-weight: bold;
+      color: #1976d2;
+    }
+
+    .meeting-date {
+      font-size: 14px;
+      color: #666;
+      background: #e3f2fd;
+      padding: 5px 12px;
+      border-radius: 999px;
+      font-weight: 600;
+    }
+
+    .meeting-content {
+      font-size: 15px;
+      line-height: 1.6;
+      color: #444;
+    }
+
+    .meeting-content h4 {
+      color: #1976d2;
+      font-size: 15px;
+      margin-top: 12px;
+      margin-bottom: 8px;
+    }
+
+    .meeting-content ul {
+      margin-left: 20px;
+      margin-top: 8px;
+    }
+
+    .meeting-content li {
+      margin-bottom: 5px;
+    }
+
+    .no-meetings {
+      text-align: center;
+      color: #999;
+      font-style: italic;
+      padding: 20px;
     }
   </style>
 </head>
@@ -275,6 +368,40 @@
         </div>
       </article>
     </div>
+
+    <!-- Meeting Minutes Section -->
+    <section class="meeting-section">
+      <h2>📹 Zoom Meeting Minutes</h2>
+      
+      <!-- First Meeting -->
+      <div class="meeting-card">
+        <div class="meeting-header">
+          <div class="meeting-title">Portfolio Check-in #1</div>
+          <div class="meeting-date">📅 Monday, November 3, 2025</div>
+        </div>
+        <div class="meeting-content">
+          <p><strong>Time:</strong> [Time TBD]</p>
+          <p><strong>Attendees:</strong> [To be added]</p>
+          
+          <h4>Agenda:</h4>
+          <ul>
+            <li>[Add agenda items here]</li>
+          </ul>
+          
+          <h4>Discussion Notes:</h4>
+          <p>[Add meeting notes here]</p>
+          
+          <h4>Action Items:</h4>
+          <ul>
+            <li>[Add action items here]</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Placeholder for future meetings -->
+      <!-- Add more meeting cards here as needed -->
+      
+    </section>
   </main>
 </body>
 </html>
