@@ -111,16 +111,32 @@
 
     .project-header {
       display: flex;
+      flex-direction: column;
       align-items: flex-start;
-      justify-content: space-between;
       margin-bottom: 15px;
       gap: 10px;
+    }
+
+    .status-chip {
+      font-size: 13px;
+      font-weight: bold;
+      padding: 8px 16px;
+      border-radius: 999px;
+      border: 2px solid transparent;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      min-width: 120px;
+      white-space: nowrap;
+      flex-shrink: 0;
+      align-self: flex-start;
     }
 
     .project-title-row {
       display: flex;
       align-items: center;
-      flex: 1;
+      width: 100%;
     }
 
     .project-emoji {
@@ -154,6 +170,7 @@
       min-width: 120px;
       white-space: nowrap;
       flex-shrink: 0;
+      align-self: flex-start;
     }
     .status-chip.green  { background: #e8f5e9; color: #2e7d32; border-color: #a5d6a7; }
     .status-chip.yellow { background: #fff8e1; color: #7a5200; border-color: #ffe082; }
@@ -320,11 +337,11 @@
       <!-- Project 1 -->
       <article class="project-entry at-risk">
         <div class="project-header">
+          <span class="status-chip yellow">🟡 At Risk</span>
           <div class="project-title-row">
             <div class="project-emoji">🎟️</div>
             <h4>Campus Event Management Platform</h4>
           </div>
-          <span class="status-chip yellow">🟡 At Risk</span>
         </div>
         <p class="project-meta">Team Lead: Abner Bonilla</p>
         <p class="project-summary">
@@ -346,11 +363,11 @@
       <!-- Project 2 -->
       <article class="project-entry on-track">
         <div class="project-header">
+          <span class="status-chip green">🟢 On Track</span>
           <div class="project-title-row">
             <div class="project-emoji">🧠</div>
             <h4>Student Course Recommendation Engine</h4>
           </div>
-          <span class="status-chip green">🟢 On Track</span>
         </div>
         <p class="project-meta">Team Lead: Berenice Fuentes</p>
         <p class="project-summary">
@@ -372,11 +389,11 @@
       <!-- Project 3 -->
       <article class="project-entry on-track">
         <div class="project-header">
+          <span class="status-chip green">🟢 On Track</span>
           <div class="project-title-row">
             <div class="project-emoji">📚</div>
             <h4>Library Study Room Booking System</h4>
           </div>
-          <span class="status-chip green">🟢 On Track</span>
         </div>
         <p class="project-meta">Team Lead: Daniel Aldana</p>
         <p class="project-summary">
@@ -398,11 +415,11 @@
       <!-- Project 4 -->
       <article class="project-entry on-track">
         <div class="project-header">
+          <span class="status-chip green">🟢 On Track</span>
           <div class="project-title-row">
             <div class="project-emoji">🗺️</div>
             <h4>Campus Navigation Mobile App</h4>
           </div>
-          <span class="status-chip green">🟢 On Track</span>
         </div>
         <p class="project-meta">Team Lead: Fatima Anammi</p>
         <p class="project-summary">
@@ -424,25 +441,24 @@
       <!-- Project 5 -->
       <article class="project-entry at-risk">
         <div class="project-header">
-          <div class="project-title-row">
-            <div class="project-emoji">📱</div>
-            <h4>Campus Navigation Mobile App</h4>
-          </div>
           <span class="status-chip yellow">🟡 At Risk</span>
+          <div class="project-title-row">
+            <div class="project-emoji">💼</div>
+            <h4>Breaking Into Tech</h4>
+          </div>
         </div>
         <p class="project-meta">Team Lead: Angel Contreras</p>
         <p class="project-summary">
-          Optimization work continues to improve GPS accuracy and energy efficiency for Android devices.
-          Focus is now on reducing location update intervals and improving map rendering stability.
+          Creating a roadmap to secure an Interview in the Tech Industry. Fulfilling on deliverables meant to better my employment aspects.
         </p>
         <div class="project-details">
           <div class="detail-item">
             <strong>Challenge / Risk</strong>
-            <p>Battery efficiency improvements are slower than expected; additional testing cycles required.</p>
+            <p>Securing my time by scheduling more hours for into the workload.</p>
           </div>
           <div class="detail-item">
             <strong>Next Step</strong>
-            <p>Finalize map caching and re-run location accuracy tests on multiple devices.</p>
+            <p>Begin seeking individuals in the tech field for recording interviews.</p>
           </div>
         </div>
       </article>
