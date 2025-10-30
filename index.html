@@ -9,10 +9,40 @@
 
     body {
       font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+      background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 50%, #90caf9 100%);
       padding: 20px;
       min-height: 100vh;
       overflow-x: auto;
+      position: relative;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: 
+        linear-gradient(90deg, rgba(66, 165, 245, 0.05) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(66, 165, 245, 0.05) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    body::after {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at 20% 30%, rgba(144, 202, 249, 0.3) 0%, transparent 40%),
+                  radial-gradient(circle at 80% 70%, rgba(100, 181, 246, 0.25) 0%, transparent 40%),
+                  radial-gradient(circle at 50% 50%, rgba(66, 165, 245, 0.15) 0%, transparent 50%);
+      pointer-events: none;
+      z-index: 0;
     }
 
     .container {
@@ -20,6 +50,8 @@
       display: flex;
       align-items: stretch;
       gap: 20px;
+      position: relative;
+      z-index: 1;
     }
 
     .header {
@@ -27,13 +59,14 @@
       top: 0;
       left: 0;
       width: 100%;
-      background: linear-gradient(135deg, #1976d2, #2196f3);
+      background: linear-gradient(135deg, #1976d2 0%, #2196f3 50%, #42a5f5 100%);
       color: #fff;
       text-align: center;
       padding: 25px 0;
       font-size: 30px;
       z-index: 100;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+      box-shadow: 0 4px 20px rgba(33, 150, 243, 0.3);
+      border-bottom: 2px solid rgba(255, 255, 255, 0.2);
     }
 
     main {
@@ -44,6 +77,8 @@
       align-items: stretch;
       padding: 20px;
       gap: 40px;
+      position: relative;
+      z-index: 1;
     }
 
     /* Banner-style project cards */
@@ -51,21 +86,23 @@
       flex: 1;
       min-width: 300px;
       max-width: 400px;
-      background: #f8f9fa;
+      background: rgba(255, 255, 255, 0.95);
       border-radius: 18px;
-      border: 2px solid #e0e0e0;
+      border: 2px solid rgba(66, 165, 245, 0.2);
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       padding: 30px;
       text-align: left;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+      box-shadow: 0 6px 20px rgba(66, 165, 245, 0.15);
       transition: transform .2s ease, box-shadow .2s ease;
+      backdrop-filter: blur(10px);
     }
 
     .project-entry:hover {
       transform: translateY(-6px);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+      box-shadow: 0 10px 30px rgba(66, 165, 245, 0.25);
+      border-color: rgba(66, 165, 245, 0.4);
     }
 
     .project-entry.on-track  { border-left: 10px solid #4caf50; }
@@ -98,13 +135,15 @@
     .status-chip {
       font-size: 14px;
       font-weight: bold;
-      padding: 6px 12px;
+      padding: 8px 16px;
       border-radius: 999px;
       border: 2px solid transparent;
       display: inline-flex;
       align-items: center;
       justify-content: center;
       gap: 5px;
+      min-width: 120px;
+      white-space: nowrap;
     }
     .status-chip.green  { background: #e8f5e9; color: #2e7d32; border-color: #a5d6a7; }
     .status-chip.yellow { background: #fff8e1; color: #7a5200; border-color: #ffe082; }
@@ -155,11 +194,14 @@
     .meeting-section {
       width: 100%;
       min-width: 1800px;
-      background: #fff;
+      background: rgba(255, 255, 255, 0.95);
       border-radius: 18px;
-      border: 2px solid #e0e0e0;
+      border: 2px solid rgba(66, 165, 245, 0.2);
       padding: 30px;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+      box-shadow: 0 6px 20px rgba(66, 165, 245, 0.15);
+      backdrop-filter: blur(10px);
+      position: relative;
+      z-index: 1;
     }
 
     .meeting-section h2 {
@@ -175,13 +217,17 @@
       background: #f8f9fa;
       border-left: 6px solid #2196f3;
       border-radius: 12px;
-      padding: 20px;
+      padding: 25px;
       margin-bottom: 20px;
       transition: transform .2s ease, box-shadow .2s ease;
+      display: grid;
+      grid-template-columns: 250px 1fr 1fr 1fr;
+      gap: 30px;
+      align-items: start;
     }
 
     .meeting-card:hover {
-      transform: translateX(5px);
+      transform: translateY(-3px);
       box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     }
 
@@ -191,10 +237,7 @@
 
     .meeting-header {
       display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 15px;
-      flex-wrap: wrap;
+      flex-direction: column;
       gap: 10px;
     }
 
@@ -205,34 +248,50 @@
     }
 
     .meeting-date {
-      font-size: 14px;
+      font-size: 13px;
       color: #666;
       background: #e3f2fd;
       padding: 5px 12px;
       border-radius: 999px;
       font-weight: 600;
+      text-align: center;
     }
 
-    .meeting-content {
-      font-size: 15px;
+    .meeting-time {
+      font-size: 13px;
+      color: #666;
+      margin-top: 5px;
+    }
+
+    .meeting-column {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .meeting-column h4 {
+      color: #1976d2;
+      font-size: 14px;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .meeting-column p {
+      font-size: 14px;
+      line-height: 1.5;
+      color: #444;
+    }
+
+    .meeting-column ul {
+      margin: 0;
+      padding-left: 18px;
+      font-size: 14px;
       line-height: 1.6;
       color: #444;
     }
 
-    .meeting-content h4 {
-      color: #1976d2;
-      font-size: 15px;
-      margin-top: 12px;
-      margin-bottom: 8px;
-    }
-
-    .meeting-content ul {
-      margin-left: 20px;
-      margin-top: 8px;
-    }
-
-    .meeting-content li {
-      margin-bottom: 5px;
+    .meeting-column li {
+      margin-bottom: 4px;
     }
 
     .no-meetings {
@@ -249,11 +308,11 @@
   <main>
     <div class="container">
       <!-- Project 1 -->
-      <article class="project-entry on-track">
+      <article class="project-entry at-risk">
         <div class="project-header">
           <div class="project-emoji">🎟️</div>
           <h4>Campus Event Management Platform</h4>
-          <span class="status-chip green">🟢 On Track</span>
+          <span class="status-chip yellow">🟡 At Risk</span>
         </div>
         <p class="project-meta">Team Lead: Abner Bonilla</p>
         <p class="project-summary">
@@ -273,11 +332,11 @@
       </article>
 
       <!-- Project 2 -->
-      <article class="project-entry at-risk">
+      <article class="project-entry on-track">
         <div class="project-header">
           <div class="project-emoji">🧠</div>
           <h4>Student Course Recommendation Engine</h4>
-          <span class="status-chip yellow">🟡 At Risk</span>
+          <span class="status-chip green">🟢 On Track</span>
         </div>
         <p class="project-meta">Team Lead: Berenice Fuentes</p>
         <p class="project-summary">
@@ -321,11 +380,11 @@
       </article>
 
       <!-- Project 4 -->
-      <article class="project-entry off-track">
+      <article class="project-entry on-track">
         <div class="project-header">
           <div class="project-emoji">🗺️</div>
           <h4>Campus Navigation Mobile App</h4>
-          <span class="status-chip red">🔴 Off Track</span>
+          <span class="status-chip green">🟢 On Track</span>
         </div>
         <p class="project-meta">Team Lead: Fatima Anammi</p>
         <p class="project-summary">
@@ -345,11 +404,11 @@
       </article>
 
       <!-- Project 5 -->
-      <article class="project-entry off-track">
+      <article class="project-entry at-risk">
         <div class="project-header">
           <div class="project-emoji">📱</div>
           <h4>Campus Navigation Mobile App</h4>
-          <span class="status-chip red">🔴 Off Track</span>
+          <span class="status-chip yellow">🟡 At Risk</span>
         </div>
         <p class="project-meta">Team Lead: Angel Contreras</p>
         <p class="project-summary">
@@ -377,21 +436,25 @@
       <div class="meeting-card">
         <div class="meeting-header">
           <div class="meeting-title">Portfolio Check-in #1</div>
-          <div class="meeting-date">📅 Monday, November 3, 2025</div>
+          <div class="meeting-date">📅 Nov 3, 2025</div>
+          <div class="meeting-time">⏰ [Time TBD]</div>
+          <div class="meeting-time">👥 [Attendees TBD]</div>
         </div>
-        <div class="meeting-content">
-          <p><strong>Time:</strong> [Time TBD]</p>
-          <p><strong>Attendees:</strong> [To be added]</p>
-          
-          <h4>Agenda:</h4>
+        
+        <div class="meeting-column">
+          <h4>Agenda</h4>
           <ul>
             <li>[Add agenda items here]</li>
           </ul>
-          
-          <h4>Discussion Notes:</h4>
+        </div>
+        
+        <div class="meeting-column">
+          <h4>Discussion Notes</h4>
           <p>[Add meeting notes here]</p>
-          
-          <h4>Action Items:</h4>
+        </div>
+        
+        <div class="meeting-column">
+          <h4>Action Items</h4>
           <ul>
             <li>[Add action items here]</li>
           </ul>
