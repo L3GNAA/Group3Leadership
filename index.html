@@ -81,7 +81,6 @@
       z-index: 1;
     }
 
-    /* Banner-style project cards */
     .project-entry {
       flex: 1;
       min-width: 300px;
@@ -93,6 +92,7 @@
       flex-direction: column;
       justify-content: space-between;
       padding: 30px;
+      padding-top: 20px;
       text-align: left;
       box-shadow: 0 6px 20px rgba(66, 165, 245, 0.15);
       transition: transform .2s ease, box-shadow .2s ease;
@@ -109,10 +109,18 @@
     .project-entry.at-risk   { border-left: 10px solid #ff9800; }
     .project-entry.off-track { border-left: 10px solid #f44336; }
 
+    .project-status-bar {
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 20px;
+      margin-top: -5px;
+      padding-right: 0;
+    }
+
     .project-header {
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      justify-content: flex-start;
       margin-bottom: 15px;
     }
 
@@ -169,10 +177,13 @@
       border-radius: 10px;
       border: 1px solid #e0e0e0;
       padding: 15px;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
     }
 
     .detail-item {
-      margin-bottom: 10px;
+      margin-bottom: 0;
     }
 
     .detail-item strong {
@@ -190,7 +201,6 @@
       margin: 0;
     }
 
-    /* Meeting Minutes Section */
     .meeting-section {
       width: 100%;
       min-width: 1800px;
@@ -309,15 +319,16 @@
     <div class="container">
       <!-- Project 1 -->
       <article class="project-entry at-risk">
+        <div class="project-status-bar">
+          <span class="status-chip yellow">🟡 At Risk</span>
+        </div>
         <div class="project-header">
           <div class="project-emoji">🎟️</div>
           <h4>Campus Event Management Platform</h4>
-          <span class="status-chip yellow">🟡 At Risk</span>
         </div>
         <p class="project-meta">Team Lead: Abner Bonilla</p>
         <p class="project-summary">
-          The team completed the database schema design and initiated frontend development for the event registration module.
-          User authentication is underway, with completion targeted for next week.
+          N/A
         </p>
         <div class="project-details">
           <div class="detail-item">
@@ -333,15 +344,16 @@
 
       <!-- Project 2 -->
       <article class="project-entry on-track">
+        <div class="project-status-bar">
+          <span class="status-chip green">🟢 On Track</span>
+        </div>
         <div class="project-header">
           <div class="project-emoji">🧠</div>
           <h4>Student Course Recommendation Engine</h4>
-          <span class="status-chip green">🟢 On Track</span>
         </div>
         <p class="project-meta">Team Lead: Berenice Fuentes</p>
         <p class="project-summary">
-          The algorithm prototype shows promising accuracy, but data access from the SIS is delayed pending security review.
-          The team is using synthetic datasets to keep moving.
+          Create a clear and accessible cybersecurity guide that teaches everyday internet users how to protect themselves from common online threats such as phishing, weak passwords, and unsafe browsing.
         </p>
         <div class="project-details">
           <div class="detail-item">
@@ -357,15 +369,16 @@
 
       <!-- Project 3 -->
       <article class="project-entry on-track">
+        <div class="project-status-bar">
+          <span class="status-chip green">🟢 On Track</span>
+        </div>
         <div class="project-header">
           <div class="project-emoji">📚</div>
           <h4>Library Study Room Booking System</h4>
-          <span class="status-chip green">🟢 On Track</span>
         </div>
         <p class="project-meta">Team Lead: Daniel Aldana</p>
         <p class="project-summary">
-          Core booking functionality is complete and in UAT with library staff. Calendar integration is done; UI polish is
-          underway based on feedback.
+          Secure meaningful progress toward a business-aligned internship or entry-level position by preparing professional application materials, submitting at least 5 targeted applications, and developing a networking pipeline that leads to recruiter or interview opportunities.
         </p>
         <div class="project-details">
           <div class="detail-item">
@@ -381,10 +394,12 @@
 
       <!-- Project 4 -->
       <article class="project-entry on-track">
+        <div class="project-status-bar">
+          <span class="status-chip green">🟢 On Track</span>
+        </div>
         <div class="project-header">
           <div class="project-emoji">🗺️</div>
           <h4>Campus Navigation Mobile App</h4>
-          <span class="status-chip green">🟢 On Track</span>
         </div>
         <p class="project-meta">Team Lead: Fatima Anammi</p>
         <p class="project-summary">
@@ -405,10 +420,12 @@
 
       <!-- Project 5 -->
       <article class="project-entry at-risk">
+        <div class="project-status-bar">
+          <span class="status-chip yellow">🟡 At Risk</span>
+        </div>
         <div class="project-header">
           <div class="project-emoji">📱</div>
           <h4>Campus Navigation Mobile App</h4>
-          <span class="status-chip yellow">🟡 At Risk</span>
         </div>
         <p class="project-meta">Team Lead: Angel Contreras</p>
         <p class="project-summary">
@@ -460,9 +477,6 @@
           </ul>
         </div>
       </div>
-
-      <!-- Placeholder for future meetings -->
-      <!-- Add more meeting cards here as needed -->
       
     </section>
   </main>
