@@ -1,202 +1,653 @@
-🌟 Team Effectiveness Formula</h4>
-                    <p style="color: #666; font-size: 16px; line-height: 1.6; text-align: center;">
-                        <strong>Trust + Psychological Safety + Clear Accountability + Healthy Conflict = High-Performing Team</strong>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Work - Managing IT Projects</title>
+    <link rel="stylesheet" href="css/design-system.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f1eb;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: #2d5d3b;
+            color: white;
+            padding: 40px;
+            text-align: center;
+            position: relative;
+        }
+
+        .back-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border: 2px solid rgba(255,255,255,0.3);
+            border-radius: 8px;
+            padding: 10px 15px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .back-button:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-2px);
+        }
+
+        .header h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 18px;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .tab-navigation {
+            display: flex;
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 8px;
+            margin-bottom: 30px;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.06);
+            overflow-x: auto;
+        }
+
+        .tab-button {
+            flex: 1;
+            min-width: 160px;
+            padding: 15px 20px;
+            background: transparent;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            color: #666;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .tab-button.active {
+            background: #2d5d3b;
+            color: white;
+            box-shadow: 0 4px 12px rgba(45, 93, 59, 0.3);
+        }
+
+        .tab-button:hover:not(.active) {
+            background: rgba(45, 93, 59, 0.1);
+            color: #2d5d3b;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .principles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .principle-card {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 20px;
+            border-left: 4px solid #666;
+            transition: all 0.3s ease;
+        }
+
+        .principle-card.highlighted {
+            background: linear-gradient(135deg, #e8f5e8 0%, #d4edda 100%);
+            border-left: 4px solid #2d5d3b;
+            box-shadow: 0 4px 15px rgba(45, 93, 59, 0.15);
+        }
+
+        .principle-card h4 {
+            color: #2d5d3b;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        .principle-card.highlighted h4 {
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .principle-card p {
+            color: #666;
+            line-height: 1.6;
+            font-size: 14px;
+        }
+
+        .highlighted-section {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            margin-top: 30px;
+            border-left: 5px solid #2d5d3b;
+        }
+
+        .roles-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .role-section {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 25px;
+        }
+
+        .role-section h3 {
+            color: #2d5d3b;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .role-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .role-list li {
+            background: white;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            color: #666;
+            font-weight: 500;
+        }
+
+        .stages-container {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        @media (max-width: 1200px) {
+            .stages-container {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
+        }
+
+        .stage-card {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-top: 4px solid var(--stage-color);
+        }
+
+        .stage-card.forming { --stage-color: #e74c3c; }
+        .stage-card.storming { --stage-color: #f39c12; }
+        .stage-card.norming { --stage-color: #3498db; }
+        .stage-card.performing { --stage-color: #27ae60; }
+        .stage-card.adjourning { --stage-color: #9b59b6; }
+
+        .stage-card h3 {
+            color: var(--stage-color);
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+
+        .stage-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .working-sections {
+            display: grid;
+            gap: 30px;
+        }
+
+        .working-section {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+
+        .working-section h3 {
+            color: #2d5d3b;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 10px;
+        }
+
+        .working-section ul {
+            color: #666;
+            line-height: 1.8;
+            padding-left: 20px;
+        }
+
+        .working-section li {
+            margin-bottom: 8px;
+        }
+
+        .charter-container {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+
+        .charter-form {
+            display: grid;
+            gap: 20px;
+        }
+
+        .form-group {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .form-group h4 {
+            color: #2d5d3b;
+            margin-bottom: 10px;
+        }
+
+        .form-group textarea {
+            width: 100%;
+            min-height: 80px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-family: inherit;
+            resize: vertical;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-family: inherit;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <a href="index.html" class="back-button">
+                <span>←</span>
+                <span>Back to Course</span>
+            </a>
+            <h1>Team Work</h1>
+            <p>Building effective project teams and collaborative environments</p>
+        </header>
+
+        <main class="content">
+            <nav class="tab-navigation">
+                <button class="tab-button active" onclick="showTab('overview')">📚 Overview</button>
+                <button class="tab-button" onclick="showTab('roles')">👥 Team Roles</button>
+                <button class="tab-button" onclick="showTab('development')">📈 Team Development</button>
+                <button class="tab-button" onclick="showTab('activity')">✍️ Team Reflection</button>
+                <button class="tab-button" onclick="showTab('working')">🤝 Working Together</button>
+                <button class="tab-button" onclick="showTab('charter')">📋 Team Charter</button>
+            </nav>
+
+            <!-- Overview Tab -->
+            <div id="overview" class="tab-content active">
+                <h2 style="text-align: center; color: #2d5d3b; margin-bottom: 30px;">PMI Project Management Principles</h2>
+
+                <div class="principles-grid">
+                    <div class="principle-card">
+                        <h4>1. Be a diligent, respectful, and caring steward</h4>
+                        <p>This principle emphasizes ethical and responsible conduct, treating stakeholders with respect and fostering a positive work environment.</p>
+                    </div>
+
+                    <div class="principle-card highlighted">
+                        <h4>2. Create a collaborative project team environment</h4>
+                        <p>Focuses on building strong, cohesive teams where communication and collaboration are prioritized.</p>
+                    </div>
+
+                    <div class="principle-card">
+                        <h4>3. Effectively engage with stakeholders</h4>
+                        <p>This principle highlights the importance of understanding stakeholder needs and expectations, and actively involving them in the project.</p>
+                    </div>
+
+                    <div class="principle-card">
+                        <h4>4. Focus on value</h4>
+                        <p>Prioritizing the delivery of value to stakeholders and aligning project activities with desired outcomes.</p>
+                    </div>
+
+                    <div class="principle-card">
+                        <h4>5. Recognize, evaluate, and respond to system interactions</h4>
+                        <p>This principle emphasizes understanding how different parts of a project interact and how changes in one area can affect others.</p>
+                    </div>
+
+                    <div class="principle-card">
+                        <h4>6. Demonstrate leadership behaviors</h4>
+                        <p>Project managers should exhibit leadership qualities such as decision-making, delegation, and motivation.</p>
+                    </div>
+
+                    <div class="principle-card">
+                        <h4>7. Tailor the delivery approach</h4>
+                        <p>Recognizing that one-size-fits-all approaches don't work, this principle encourages tailoring project management methods to the specific needs of the project.</p>
+                    </div>
+
+                    <div class="principle-card">
+                        <h4>8. Build quality into processes and deliverables</h4>
+                        <p>Ensuring that quality is considered throughout the project lifecycle, from planning to execution.</p>
+                    </div>
+
+                    <div class="principle-card">
+                        <h4>9. Navigate complexity</h4>
+                        <p>Managing the inherent complexities of projects by breaking them down into manageable parts and using appropriate tools and techniques.</p>
+                    </div>
+
+                    <div class="principle-card">
+                        <h4>10. Optimize risk responses</h4>
+                        <p>Identifying, assessing, and responding to potential risks to minimize their impact on the project.</p>
+                    </div>
+
+                    <div class="principle-card">
+                        <h4>11. Embrace adaptability and resilience</h4>
+                        <p>Being prepared to adjust to changing circumstances and bounce back from setbacks.</p>
+                    </div>
+
+                    <div class="principle-card">
+                        <h4>12. Enable change to achieve the envisioned future</h4>
+                        <p>Facilitating necessary changes to ensure the project achieves its intended goals and delivers the desired value.</p>
+                    </div>
+                </div>
+
+                <div class="highlighted-section">
+                    <h3 style="color: #2d5d3b; margin-bottom: 20px;">🎯 Focus: Collaborative Project Team Environment</h3>
+                    <p style="color: #666; line-height: 1.8; font-size: 16px;">
+                        According to PMI, <strong>Principle 2: Create a collaborative project team environment</strong> is fundamental to project success.
+                        This principle recognizes that projects are delivered by people, and the team environment significantly impacts performance and outcomes.
+                    </p>
+                    <br>
+                    <p style="color: #666; line-height: 1.8; font-size: 16px;">
+                        A collaborative environment fosters open communication, mutual respect, shared accountability, and collective problem-solving.
+                        It emphasizes building psychological safety where team members feel comfortable expressing ideas, raising concerns, and
+                        learning from mistakes. This principle drives higher engagement, innovation, and ultimately better project results.
                     </p>
                 </div>
             </div>
 
-            <!-- Team Charter Tab -->
-            <div id="charter" class="tab-content">
-                <h2 style="text-align: center; color: #2d5d3b; margin-bottom: 30px;">📊 Portfolio Status Page</h2>
+            <!-- Team Roles Tab -->
+            <div id="roles" class="tab-content">
+                <h2 style="text-align: center; color: #2d5d3b; margin-bottom: 30px;">👥 Team Roles & Skills</h2>
 
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 25px; margin-bottom: 40px;">
-                    <!-- Project 1 -->
-                    <article style="background: white; border-radius: 15px; padding: 25px; border-left: 8px solid #ff9800; box-shadow: 0 4px 15px rgba(0,0,0,0.08);">
-                        <div style="display: flex; justify-content: flex-end; margin-bottom: 15px;">
-                            <span style="background: #fff8e1; color: #7a5200; padding: 8px 16px; border-radius: 999px; font-weight: bold; font-size: 14px; border: 2px solid #ffe082;">🟡 At Risk</span>
-                        </div>
-                        <div style="display: flex; align-items: center; margin-bottom: 15px;">
-                            <div style="font-size: 28px; background: #f8f9fa; border: 1px solid #e0e0e0; border-radius: 10px; padding: 8px 12px; margin-right: 12px;">🎟️</div>
-                            <h4 style="color: #2d5d3b; font-size: 20px; margin: 0;">IT Career Readiness</h4>
-                        </div>
-                        <p style="font-weight: bold; color: #555; margin-bottom: 12px;">Team Lead: Abner Bonilla</p>
-                        <p style="color: #666; line-height: 1.6; margin-bottom: 20px;">
-                            This Project focuses on preparing for and securing at least one real IT support/operations interview by the end of the semester. Throughout semerter, I am developing ploshied career materials, including a professional resume, cover letter, and attending network events.
-                        </p>
-                        <div style="background: #f8f9fa; border-radius: 10px; padding: 15px;">
-                            <div style="margin-bottom: 15px;">
-                                <strong style="color: #2d5d3b; display: block; font-size: 13px; margin-bottom: 5px; text-transform: uppercase;">Challenge / Risk</strong>
-                                <p style="font-size: 14px; color: #444; margin: 0;">Primary risk is that emploers response times and interview may extend beyond the semster timeline, balancing time to the project, and networking availability.</p>
-                            </div>
-                            <div>
-                                <strong style="color: #2d5d3b; display: block; font-size: 13px; margin-bottom: 5px; text-transform: uppercase;">Next Step</strong>
-                                <p style="font-size: 14px; color: #444; margin: 0;">Finalize portfolio, resume, and begin submitting applications. Schedule mock interviews to apply feedback and improve readiness.</p>
-                            </div>
-                        </div>
-                    </article>
+                <div class="roles-grid">
+                    <div class="role-section">
+                        <h3>🏢 Formal Roles</h3>
+                        <ul class="role-list">
+                            <li><strong>Project Manager</strong> - Plans, coordinates, and oversees project execution</li>
+                            <li><strong>Business Analyst</strong> - Analyzes requirements and bridges business needs</li>
+                            <li><strong>Developer</strong> - Builds and codes the technical solution</li>
+                            <li><strong>QA</strong> - Tests and ensures quality standards are met</li>
+                            <li><strong>Stakeholders</strong> - Provide input, requirements, and approval</li>
+                        </ul>
+                    </div>
 
-                    <!-- Project 2 -->
-                    <article style="background: white; border-radius: 15px; padding: 25px; border-left: 8px solid #ff9800; box-shadow: 0 4px 15px rgba(0,0,0,0.08);">
-                        <div style="display: flex; justify-content: flex-end; margin-bottom: 15px;">
-                            <span style="background: #fff8e1; color: #7a5200; padding: 8px 16px; border-radius: 999px; font-weight: bold; font-size: 14px; border: 2px solid #ffe082;">🟡 At Risk</span>
-                        </div>
-                        <div style="display: flex; align-items: center; margin-bottom: 15px;">
-                            <div style="font-size: 28px; background: #f8f9fa; border: 1px solid #e0e0e0; border-radius: 10px; padding: 8px 12px; margin-right: 12px;">🧠</div>
-                            <h4 style="color: #2d5d3b; font-size: 20px; margin: 0;">Cybersecurity Awareness Guide</h4>
-                        </div>
-                        <p style="font-weight: bold; color: #555; margin-bottom: 12px;">Team Lead: Berenice Fuentes</p>
-                        <p style="color: #666; line-height: 1.6; margin-bottom: 20px;">
-                            Create a clear and accessible cybersecurity guide that teaches everyday internet users how to protect themselves from common online threats such as phishing, weak passwords, and unsafe browsing. The guide will include step-by-step tips, real examples, and best practices to build safer online habits in a well-designed PDF document.
-                        </p>
-                        <div style="background: #f8f9fa; border-radius: 10px; padding: 15px;">
-                            <div style="margin-bottom: 15px;">
-                                <strong style="color: #2d5d3b; display: block; font-size: 13px; margin-bottom: 5px; text-transform: uppercase;">Challenge / Risk</strong>
-                                <p style="font-size: 14px; color: #444; margin: 0;">Making the guide comes with a few challenges, such as keeping the information accurate but still easy for everyone to understand. It might be hard to make sure the details stay up to date as online threats change over time. Designing the guide so it looks nice and is easy to read can also take extra time. Finding a good balance between giving enough information and not overwhelming readers is another important challenge.</p>
-                            </div>
-                            <div>
-                                <strong style="color: #2d5d3b; display: block; font-size: 13px; margin-bottom: 5px; text-transform: uppercase;">Next Step</strong>
-                                <p style="font-size: 14px; color: #444; margin: 0;">Plan the main sections of the guide, collect trustworthy information, and start writing simple, step-by-step tips for each topic.</p>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- Project 3 -->
-                    <article style="background: white; border-radius: 15px; padding: 25px; border-left: 8px solid #4caf50; box-shadow: 0 4px 15px rgba(0,0,0,0.08);">
-                        <div style="display: flex; justify-content: flex-end; margin-bottom: 15px;">
-                            <span style="background: #e8f5e9; color: #2e7d32; padding: 8px 16px; border-radius: 999px; font-weight: bold; font-size: 14px; border: 2px solid #a5d6a7;">🟢 On Track</span>
-                        </div>
-                        <div style="display: flex; align-items: center; margin-bottom: 15px;">
-                            <div style="font-size: 28px; background: #f8f9fa; border: 1px solid #e0e0e0; border-radius: 10px; padding: 8px 12px; margin-right: 12px;">📚</div>
-                            <h4 style="color: #2d5d3b; font-size: 20px; margin: 0;">Business-Align Job Junt</h4>
-                        </div>
-                        <p style="font-weight: bold; color: #555; margin-bottom: 12px;">Team Lead: Daniel Aldana</p>
-                        <p style="color: #666; line-height: 1.6; margin-bottom: 20px;">
-                            Secure meaningful progress toward a business-aligned internship or entry-level position by preparing professional application materials, submitting at least 3 targeted applications, and developing a networking pipeline that leads to recruiter or interview opportunities.
-                        </p>
-                        <div style="background: #f8f9fa; border-radius: 10px; padding: 15px;">
-                            <div style="margin-bottom: 15px;">
-                                <strong style="color: #2d5d3b; display: block; font-size: 13px; margin-bottom: 5px; text-transform: uppercase;">Challenge / Risk</strong>
-                                <p style="font-size: 14px; color: #444; margin: 0;">Balancing time for conducting project deliverables/activities wih other academic responsibilities. Furthermore, due to several delays on key milestones, the possibility of falling behind and extending deliverable deadlines could occur.</p>
-                            </div>
-                            <div>
-                                <strong style="color: #2d5d3b; display: block; font-size: 13px; margin-bottom: 5px; text-transform: uppercase;">Next Step</strong>
-                                <p style="font-size: 14px; color: #444; margin: 0;">Review closure documents, monitoring entire progress and document key acheivements. Communicate with known and new stakeholders regarding project progress and insight to what to do next (roadmap conversation).</p>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- Project 4 -->
-                    <article style="background: white; border-radius: 15px; padding: 25px; border-left: 8px solid #4caf50; box-shadow: 0 4px 15px rgba(0,0,0,0.08);">
-                        <div style="display: flex; justify-content: flex-end; margin-bottom: 15px;">
-                            <span style="background: #e8f5e9; color: #2e7d32; padding: 8px 16px; border-radius: 999px; font-weight: bold; font-size: 14px; border: 2px solid #a5d6a7;">🟢 On Track</span>
-                        </div>
-                        <div style="display: flex; align-items: center; margin-bottom: 15px;">
-                            <div style="font-size: 28px; background: #f8f9fa; border: 1px solid #e0e0e0; border-radius: 10px; padding: 8px 12px; margin-right: 12px;">🗺️</div>
-                            <h4 style="color: #2d5d3b; font-size: 20px; margin: 0;">Cybersecurity Portfolio Project</h4>
-                        </div>
-                        <p style="font-weight: bold; color: #555; margin-bottom: 12px;">Team Lead: Fatima Zahra Anammi</p>
-                        <p style="color: #666; line-height: 1.6; margin-bottom: 20px;">
-                            Portfolio development and Security+ preparation are progressing steadily. Internship applications and portfolio updates are ongoing with consistent weekly progress.
-                        </p>
-                        <div style="background: #f8f9fa; border-radius: 10px; padding: 15px;">
-                            <div style="margin-bottom: 15px;">
-                                <strong style="color: #2d5d3b; display: block; font-size: 13px; margin-bottom: 5px; text-transform: uppercase;">Challenge / Risk</strong>
-                                <p style="font-size: 14px; color: #444; margin: 0;">Balancing Security+ study time with coursework; potential minor delays in certification prep.</p>
-                            </div>
-                            <div>
-                                <strong style="color: #2d5d3b; display: block; font-size: 13px; margin-bottom: 5px; text-transform: uppercase;">Next Step</strong>
-                                <p style="font-size: 14px; color: #444; margin: 0;">Continue Security+ studies and look for individuals in the tech industry for interviews to gain insight and networking opportunities.</p>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- Project 5 -->
-                    <article style="background: white; border-radius: 15px; padding: 25px; border-left: 8px solid #ff9800; box-shadow: 0 4px 15px rgba(0,0,0,0.08);">
-                        <div style="display: flex; justify-content: flex-end; margin-bottom: 15px;">
-                            <span style="background: #fff8e1; color: #7a5200; padding: 8px 16px; border-radius: 999px; font-weight: bold; font-size: 14px; border: 2px solid #ffe082;">🟡 At Risk</span>
-                        </div>
-                        <div style="display: flex; align-items: center; margin-bottom: 15px;">
-                            <div style="font-size: 28px; background: #f8f9fa; border: 1px solid #e0e0e0; border-radius: 10px; padding: 8px 12px; margin-right: 12px;">📱</div>
-                            <h4 style="color: #2d5d3b; font-size: 20px; margin: 0;">Campus Navigation Mobile App</h4>
-                        </div>
-                        <p style="font-weight: bold; color: #555; margin-bottom: 12px;">Team Lead: Angel Contreras</p>
-                        <p style="color: #666; line-height: 1.6; margin-bottom: 20px;">
-                            Optimization work continues to improve GPS accuracy and energy efficiency for Android devices. Focus is now on reducing location update intervals and improving map rendering stability.
-                        </p>
-                        <div style="background: #f8f9fa; border-radius: 10px; padding: 15px;">
-                            <div style="margin-bottom: 15px;">
-                                <strong style="color: #2d5d3b; display: block; font-size: 13px; margin-bottom: 5px; text-transform: uppercase;">Challenge / Risk</strong>
-                                <p style="font-size: 14px; color: #444; margin: 0;">Battery efficiency improvements are slower than expected; additional testing cycles required.</p>
-                            </div>
-                            <div>
-                                <strong style="color: #2d5d3b; display: block; font-size: 13px; margin-bottom: 5px; text-transform: uppercase;">Next Step</strong>
-                                <p style="font-size: 14px; color: #444; margin: 0;">Finalize map caching and re-run location accuracy tests on multiple devices.</p>
-                            </div>
-                        </div>
-                    </article>
+                    <div class="role-section">
+                        <h3>⭐ Informal Roles</h3>
+                        <ul class="role-list">
+                            <li><strong>The Motivator</strong> - Keeps team spirits high and energy positive</li>
+                            <li><strong>The Doer</strong> - Executes tasks efficiently and delivers results</li>
+                            <li><strong>The Detail Checker</strong> - Ensures accuracy and thoroughness</li>
+                            <li><strong>The Innovator</strong> - Brings creative solutions and new ideas</li>
+                            <li><strong>The Communicator</strong> - Facilitates information flow and clarity</li>
+                            <li><strong>The Researcher</strong> - Investigates options and gathers information</li>
+                            <li><strong>The Presenter</strong> - Effectively shares findings and updates</li>
+                            <li><strong>The Organizer</strong> - Structures tasks and maintains order</li>
+                        </ul>
+                    </div>
                 </div>
 
-                <!-- Meeting Minutes Section -->
-                <div style="background: white; border-radius: 15px; padding: 30px; box-shadow: 0 4px 15px rgba(0,0,0,0.08); margin-top: 30px;">
-                    <h2 style="color: #2d5d3b; font-size: 26px; margin-bottom: 25px; display: flex; align-items: center; gap: 10px;">
-                        📹 Zoom Meeting Minutes
-                    </h2>
-                    
-                    <div style="background: #f8f9fa; border-left: 6px solid #2196f3; border-radius: 12px; padding: 25px;">
-                        <div style="display: grid; grid-template-columns: 250px 1fr 1fr 1fr; gap: 30px; align-items: start;">
-                            <div>
-                                <div style="font-size: 18px; font-weight: bold; color: #2d5d3b; margin-bottom: 10px;">Portfolio Check-in #1</div>
-                                <div style="font-size: 13px; color: #666; background: #e3f2fd; padding: 5px 12px; border-radius: 999px; font-weight: 600; text-align: center; margin-bottom: 8px;">📅 Nov 3, 2025</div>
-                                <div style="font-size: 13px; color: #666; margin-top: 5px;">⏰ [Time TBD]</div>
-                                <div style="font-size: 13px; color: #666; margin-top: 5px;">👥 Angel, Fatima, Berenice, Abner, Daniel</div>
-                            </div>
-                            
-                            <div>
-                                <h4 style="color: #2d5d3b; font-size: 14px; margin-bottom: 8px; text-transform: uppercase;">Agenda</h4>
-                                <ul style="margin: 0; padding-left: 18px; font-size: 14px; line-height: 1.6; color: #444;">
-                                    <li>Discuss project charter completion, adjustment, and alignment</li>
-                                    <li>Ensure project execution matches with deliverables</li>
-                                </ul>
-                            </div>
-                            
-                            <div>
-                                <h4 style="color: #2d5d3b; font-size: 14px; margin-bottom: 8px; text-transform: uppercase;">Discussion Notes</h4>
-                                <p style="font-size: 14px; line-height: 1.5; color: #444; margin: 0;">Ensuring all teammates are in the green for the project charter</p>
-                            </div>
-                            
-                            <div>
-                                <h4 style="color: #2d5d3b; font-size: 14px; margin-bottom: 8px; text-transform: uppercase;">Action Items</h4>
-                                <ul style="margin: 0; padding-left: 18px; font-size: 14px; line-height: 1.6; color: #444;">
-                                    <li>Follow up with group (professor as a last resort)</li>
-                                    <li>Finalize execution to prepare for closure documents</li>
-                                </ul>
-                            </div>
-                        </div>
+                <div style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); border-radius: 15px; padding: 25px; text-align: center;">
+                    <h4 style="color: #2d5d3b; margin-bottom: 15px;">💡 Key Insight</h4>
+                    <p style="color: #666; font-size: 16px; line-height: 1.6;">
+                        Successful teams leverage both formal structures and informal dynamics. While formal roles ensure accountability
+                        and clear responsibilities, informal roles emerge naturally and are equally important for team effectiveness.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Team Development Tab -->
+            <div id="development" class="tab-content">
+                <h2 style="text-align: center; color: #2d5d3b; margin-bottom: 30px;">📈 Team Development (Tuckman Model)</h2>
+
+                <div class="stages-container">
+                    <div class="stage-card forming">
+                        <h3>🌱 Forming</h3>
+                        <p>Getting oriented, polite, uncertain. Team members are learning about each other and the project scope.</p>
+                    </div>
+
+                    <div class="stage-card storming">
+                        <h3>⚡ Storming</h3>
+                        <p>Conflict, pushback, jockeying for position. Different opinions and working styles create tension.</p>
+                    </div>
+
+                    <div class="stage-card norming">
+                        <h3>🤝 Norming</h3>
+                        <p>Agreement on processes, trust grows. Team establishes ground rules and begins working together effectively.</p>
+                    </div>
+
+                    <div class="stage-card performing">
+                        <h3>🚀 Performing</h3>
+                        <p>High-functioning, delivering results. Team operates efficiently with minimal supervision and maximum output.</p>
+                    </div>
+
+                    <div class="stage-card adjourning">
+                        <h3>🎉 Adjourning</h3>
+                        <p>Wrapping up and celebrating achievements. Project completion and team dissolution with recognition of success.</p>
+                    </div>
+                </div>
+
+                <div style="background: white; border-radius: 15px; padding: 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.08);">
+                    <h4 style="color: #2d5d3b; margin-bottom: 15px;">📚 Understanding the Model</h4>
+                    <p style="color: #666; line-height: 1.8;">
+                        Bruce Tuckman's model describes the natural progression of team development. Understanding these stages helps
+                        project managers anticipate challenges and support their teams through each phase. Not all teams progress linearly,
+                        and some may revisit earlier stages when new members join or significant changes occur.
+                    </p>
+                </div>
+
+                <div style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); border-radius: 15px; padding: 30px; margin-top: 30px;">
+                    <h4 style="color: #2d5d3b; margin-bottom: 20px;">🎬 Example: Mobile App Development Team</h4>
+
+                    <div style="background: white; border-radius: 10px; padding: 20px; margin-bottom: 15px; border-left: 4px solid #e74c3c;">
+                        <h5 style="color: #e74c3c; margin-bottom: 10px;">Week 1-2: Forming</h5>
+                        <p style="color: #666; line-height: 1.6;">
+                            Five students meet for the first time. Everyone is polite and enthusiastic. "Hi, I'm Sarah, I know React Native!"
+                            "I'm John, I can do the backend." They discuss the app idea cautiously, nobody wants to offend anyone.
+                            Everyone agrees to everything. Lots of "That sounds great!" but no real decisions are made yet.
+                        </p>
+                    </div>
+
+                    <div style="background: white; border-radius: 10px; padding: 20px; margin-bottom: 15px; border-left: 4px solid #f39c12;">
+                        <h5 style="color: #f39c12; margin-bottom: 10px;">Week 3-4: Storming</h5>
+                        <p style="color: #666; line-height: 1.6;">
+                            Tensions emerge. Sarah thinks the UI should be minimalist, but Mike wants flashy animations.
+                            John missed a deadline and Amy publicly criticizes him in the team chat.
+                            "Why didn't you tell us earlier?" Arguments about using MongoDB vs PostgreSQL get heated.
+                            Some team members stop responding to messages promptly.
+                        </p>
+                    </div>
+
+                    <div style="background: white; border-radius: 10px; padding: 20px; margin-bottom: 15px; border-left: 4px solid #3498db;">
+                        <h5 style="color: #3498db; margin-bottom: 10px;">Week 5-6: Norming</h5>
+                        <p style="color: #666; line-height: 1.6;">
+                            The team has a breakthrough meeting. They establish ground rules: "Updates every Tuesday and Friday,"
+                            "48-hour response time on Slack," "Vote on major decisions." Sarah and Mike compromise on a
+                            "clean with subtle animations" design. Trust builds as everyone starts delivering on commitments.
+                            Inside jokes emerge. They create a shared Spotify playlist for coding sessions.
+                        </p>
+                    </div>
+
+                    <div style="background: white; border-radius: 10px; padding: 20px; margin-bottom: 15px; border-left: 4px solid #27ae60;">
+                        <h5 style="color: #27ae60; margin-bottom: 10px;">Week 7-11: Performing</h5>
+                        <p style="color: #666; line-height: 1.6;">
+                            The team is in the zone! Code reviews happen smoothly, everyone knows their role.
+                            When a critical bug appears, they swarm on it without being asked. Mike helps Sarah with a complex animation,
+                            Sarah assists John with API integration. They're ahead of schedule and adding extra features.
+                            Team standup calls are efficient and even fun. "This is the best team I've worked with!"
+                        </p>
+                    </div>
+
+                    <div style="background: white; border-radius: 10px; padding: 20px; border-left: 4px solid #9b59b6;">
+                        <h5 style="color: #9b59b6; margin-bottom: 10px;">Week 12: Adjourning</h5>
+                        <p style="color: #666; line-height: 1.6;">
+                            Project presentation day! The app demo goes perfectly. High-fives all around.
+                            They go out for pizza to celebrate, share LinkedIn profiles, and promise to stay in touch.
+                            Some sadness mixed with pride. "I'm going to miss our Tuesday standups."
+                            They create a team photo collage and everyone keeps a copy. The WhatsApp group stays active even after the course ends.
+                        </p>
                     </div>
                 </div>
             </div>
-        </main>
-    </div>
 
-    <script>
-        // Tab functionality
-        function showTab(tabName) {
-            // Hide all tabs
-            document.querySelectorAll('.tab-content').forEach(tab => {
-                tab.classList.remove('active');
-            });
+            <!-- Canvas Activity Tab -->
+            <div id="activity" class="tab-content">
+                <h2 style="text-align: center; color: #2d5d3b; margin-bottom: 30px;">✍️ Team Reflection Activity</h2>
 
-            // Remove active from all buttons
-            document.querySelectorAll('.tab-button').forEach(button => {
-                button.classList.remove('active');
-            });
+                <div style="background: linear-gradient(135deg, #f0f8ff, #e6f3ff); border-radius: 15px; padding: 30px; margin-bottom: 30px; border-left: 5px solid #2196f3;">
+                    <h3 style="color: #1976d2; margin-bottom: 15px;">🎯 Objective</h3>
+                    <p style="color: #333; line-height: 1.8; font-size: 16px;">
+                        To help you recognize your own tendencies, strengths, and growth areas when working in teams—so that as we move
+                        into portfolio and program work, you can better understand how you contribute to group success.
+                    </p>
+                </div>
 
-            // Show selected tab
-            document.getElementById(tabName).classList.add('active');
+                <div style="background: #fff; border-radius: 15px; padding: 30px; margin-bottom: 30px; box-shadow: 0 2px 10px rgba(0,0,0,0.08); border-top: 4px solid #4caf50;">
+                    <h3 style="color: #2e7d32; margin-bottom: 20px;">📌 Instructions</h3>
+                    <p style="color: #555; line-height: 1.8; margin-bottom: 20px;">
+                        After reviewing the Team Roles & Skills overview, reflect on the roles you typically take on when working in a team.
+                        Consider both the informal roles (like Motivator, Doer, Detail Checker, Innovator) and formal roles
+                        (like Project Manager, Business Analyst, Developer, QA, or Stakeholder).
+                    </p>
 
-            // Set active button
-            event.target.classList.add('active');
-        }
-    </script>
-</body>
-</html>
+                    <p style="color: #333; font-weight: bold; margin-bottom: 15px;">In your submission, please address the following:</p>
+
+                    <div style="background: #f8f9fa; border-radius: 12px; padding: 25px; margin-bottom: 20px;">
+                        <div style="margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid #dee2e6;">
+                            <h4 style="color: #2d5d3b; margin-bottom: 10px;">1. Informal Roles (3 pts)</h4>
+                            <p style="color: #555; line-height: 1.7;">
+                                Which of the informal team roles do you most naturally take on? Give one or two examples of how that
+                                has shown up in past projects, classes, or work experiences.
+                            </p>
+                        </div>
+
+                        <div style="margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid #dee2e6;">
+                            <h4 style="color: #2d5d3b; margin-bottom: 10px;">2. Formal Roles (3 pts)</h4>
+                            <p style="color: #555; line-height: 1.7;">
+                                Translate the informal roles into formal roles. How comfortable are you in that role,
+                                and what strengths do you bring?
+                            </p>
+                        </div>
+
+                        <div>
+                            <h4 style="color: #2d5d3b; margin-bottom: 10px;">3. Team Performance Reflection (4 pts)</h4>
+                            <p style="color: #555; line-height: 1.7;">
+                                Overall, how would you describe your general performance when working in teams?
+                                Are you responsive? Do you feel you take on most of the work?
+                            </p>
+                        </div>
+                    </div>
+
+                    <div style="background: #fff3e0; border-radius: 10px; padding: 20px; margin-top: 25px; border-left: 4px solid #ff9800;">
+                        <p style="color: #e65100; font-weight: bold; margin-bottom: 10px;">
+                            💡 Important Note:
+                        </p>
+                        <p style="color: #666; line-height: 1.6; margin: 0;">
+                            Be honest and thoughtful—this is not graded on right or wrong answers, but on the depth of reflection
+                            and clarity of insight.
+                        </p>
+                    </div>
+                </div>
+
+                <div style="text-align: center; margin-top: 30px;">
+                    <a href="https://calstatela.instructure.com/courses/116684/assignments/2338632"
+                       target="_blank"
+                       style="display: inline-block; background: linear-gradient(135deg, #4caf50, #2e7d32); color: white; padding: 15px 40px; border-radius: 8px; text-decoration: none; font-weight: bold; font-size: 16px; box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3); transition: all 0.3s ease;">
+                        📤 Submit on Canvas
+                    </a>
+                </div>
+            </div>
+
+            <!-- Working Together Tab -->
+            <div id="working" class="tab-content">
+                <h2 style="text-align: center; color: #2d5d3b; margin-bottom: 30px;">🤝 Working Together</h2>
+
+                <div class="working-sections">
+                    <div class="working-section">
+                        <h3>⚔️ Collaboration and Conflict</h3>
+                        <ul>
+                            <li><strong>Collaboration ≠ avoiding conflict</strong> — healthy conflict improves ideas and leads to better solutions</li>
+                            <li><strong>Focus on issues, not people</strong> — address problems and ideas, not personal characteristics</li>
+                            <li><strong>Decision-making approaches:</strong>
+                                <ul style="margin-top: 10px;">
+                                    <li><strong>Consensus:</strong> Everyone agrees on the decision</li>
+                                    <li><strong>Majority:</strong> Most team members support the decision</li>
+                                    <li><strong>Leader decides:</strong> Project manager makes the final call</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="working-section">
+                        <h3>🛡️ Trust, Accountability, and Psychological Safety</h3>
+                        <ul>
+                            <li><strong>Psychological Safety:</strong> Teams thrive when members feel safe to speak up, experiment, and admit mistakes</li>
+                            <li><strong>Accountability isn't about blame</strong> — it's about commitments and following through on promises</li>
+                            <li><strong>Building trust through:</strong>
+                                <ul style="margin-top: 10px;">
+                                    <li><strong>Reliability:</strong> Consistently delivering on commitments</li>
+                                    <li><strong>Openness:</strong> Transparent communication and honest feedback</li>
+                                    <li><strong>Fairness:</strong> Treating all team members equitably</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div style="background: linear-gradient(135deg, #e8f5e8 0%, #d4edda 100%); border-radius: 15px; padding: 25px; margin-top: 30px;">
+                    <h4 style="color: #2d5d3b; margin-bottom: 15px; text-align: center;">
